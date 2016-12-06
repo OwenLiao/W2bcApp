@@ -1,0 +1,38 @@
+﻿
+
+
+<ion-view view-title="Articles">
+
+
+    <ion-content>
+        <!--幻灯片-->
+        <ion-slide-box active-slide="myActiveSlide">
+            <ion-slide>
+                <div class="box">
+                    <img src="http://pic.w2bc.com/upload/201611/18/201611180037398750.jpg" alt="" />
+                    <h1>jquery手机端带农历的万年历插件</h1>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box">
+                    <img src="http://pic.w2bc.com/upload/201611/18/201611180037374140.jpg" alt="" />
+                    <h1>HTML5 SVG地图旋转动画特效</h1>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box">
+                    <img src="http://pic.w2bc.com/upload/201611/16/201611162051269638.jpg" alt="" />
+                    <h1>Canvas三角图形背景生成器代码</h1>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+        <!--/幻灯片-->
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.Id}}">
+                <img class="item_img" ng-src="{{chat.ImgUrl}}">
+                <h2>{{chat.Title}}</h2>
+                <p>{{chat.AddTime}}</p>          
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
