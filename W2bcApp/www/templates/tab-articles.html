@@ -5,6 +5,8 @@
 
 
     <ion-content>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+
         <!--幻灯片-->
         <ion-slide-box active-slide="myActiveSlide">
             <ion-slide>
@@ -26,13 +28,17 @@
                 </div>
             </ion-slide>
         </ion-slide-box>
-        <!--/幻灯片-->
-        <ion-list>
-            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.Id}}">
-                <img class="item_img" ng-src="{{chat.ImgUrl}}">
-                <h2>{{chat.Title}}</h2>
-                <p>{{chat.AddTime}}</p>          
-            </ion-item>
-        </ion-list>
+        <!--/幻灯片  #/tab/chats/{{chat.Id}}-->
+
+        <div class="list" id="article_list">
+            <a class="item item-thumbnail-left" ng-repeat="item in vmArticles" href="#/tab/chats/{{item.Id}}">
+                <img class="list_img" ng-src="{{item.ImgUrl}}">
+                <h2>{{item.Title}}</h2>
+                <p>{{item.AddTime}}</p>
+            </a>
+        </div>
+        <!-- 上拉加载更多 distance默认1% nf-if的值为false时，就禁止执行on-infinite     -->
+        <ion-infinite-scroll ng-if="!noMorePage" immediate-check="false" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+        <!-- /上拉加载更多 -->
     </ion-content>
 </ion-view>

@@ -1,83 +1,90 @@
-﻿/* Empty. Add your own CSS if you like */
-body
-{
-    font-family:Hiragino Sans GB,Microsoft YaHei,微软雅黑,宋体,Arial,Tahoma,Helvetica,sans-serif;
-    font-size: 12px;
-    /* color:#5e554e;*/
-    color:#333;
-}
+@charset "UTF-8";
+/* Empty. Add your own CSS if you like */
+body {
+  font-family: Hiragino Sans GB,Microsoft YaHei,微软雅黑,宋体,Arial,Tahoma,Helvetica,sans-serif;
+  font-size: 12px;
+  /* color:#5e554e;*/
+  color: #333; }
+
 body, html, form, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
+  margin: 0;
+  padding: 0;
+  border: 0; }
 
 ol, ul, li {
-    list-style-type: none;
-}
+  list-style-type: none; }
 
 textarea {
-    overflow: auto;
-    resize: none;
-}
-
-
-
+  overflow: auto;
+  resize: none; }
 
 /*===============幻灯片==========*/
-
 .slider {
-    width: 100%;
-    z-index: -1;
-    margin-bottom: -16px;
-}
+  width: 100%;
+  z-index: -1;
+  margin-bottom: -16px; }
 
-    .slider img {
-        width: 100%;
-        height: auto;
-    }
+.slider img {
+  width: 100%;
+  height: auto; }
 
 .slider-slide {
-    color: #000;
-    background-color: #fff;
-    text-align: center;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    z-index: 999;
-    top: 0;
-}
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  z-index: 999;
+  top: 0; }
 
 .box {
-    height: 100%;
-    overflow: hidden;
-}
+  height: 100%;
+  overflow: hidden; }
 
-    .box h1 {
-        position: absolute;
-        z-index: 1;
-        bottom: 5px;
-        left: 0;
-        color: #FFF;
-        font-weight: normal;
-        font-size: 16px;
-        display: inline-block;
-        width: 100%;
-        height: 40px;
-        line-height: 40px;
-        background: rgba(0,0,0,0.8);
-    }
-
+.box h1 {
+  position: absolute;
+  z-index: 1;
+  bottom: 5px;
+  left: 0;
+  color: #FFF;
+  font-weight: normal;
+  font-size: 16px;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background: rgba(0, 0, 0, 0.8); }
 
 .slider-pager {
-    top: 6px;
-    right: 6px;
-    text-align: right;
-    z-index: 999;
-}
-
+  top: 6px;
+  right: 6px;
+  text-align: right;
+  z-index: 999; }
 
 /*===============文章列表==========*/
-.list {
+#article_list img {
+  max-width: none;
+  max-height: none;
+  width: 7rem;
+  height: auto;
+  top: 1rem; }
+#article_list .item-thumbnail-left {
+  padding-left: 8.3rem; }
+#article_list h2 {
+  white-space: normal; }
+#article_list p {
+  color: #b8b8b8;
+  font-size: 0.6rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 8.3rem; }
+#article_list .item {
+  border: 0;
+  padding-top: 1rem;
+  height: 7rem;
+  border-bottom: solid 0.25rem #f2f2f2; }
+
+/*.list {
 
 }
 .list .item-complex.item-icon-right .item-content {
@@ -98,3 +105,7 @@ height:112px;
 .item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
     white-space: normal;
 }
+
+*/
+
+/*# sourceMappingURL=style.css.map */

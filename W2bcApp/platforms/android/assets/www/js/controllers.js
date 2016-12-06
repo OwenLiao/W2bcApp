@@ -1,11 +1,34 @@
 angular.module('starter.controllers', [])
-
+    //文章列表
 .controller('ArticlesCtrl', function ($scope, Fac) {
-    Fac.articles().success(function (data) {
-        $scope.chats = data
+    Fac.articles(1).success(function (data) {
+        $scope.vmArticles = data
     });
-    $scope.remove = function (chat) {
-        Fac.remove(chat);
+
+
+    //上拉刷新
+    $scope.doRefresh = function () {
+        Fac.articles(1).success(function (data) {
+            $scope.vmArticles = data;
+        }).finally(function () {
+            $scope.$broadcast('scroll.refreshComplete');
+        });
+    };
+
+    $scope.currentPage = 1;//定义下拉加载分页的初始值
+
+    $scope.loadMore = function () {
+        $scope.currentPage += 1;//每当滚动到底部，页码累计加1
+        Fac.articles($scope.currentPage).success(function (data) {
+            for (var i in data) {
+                $scope.vmArticles.push(data[i]);
+            }
+            if (data.length < 20) {//当json的数量小于10（已经确定了一页为10条数据），说明页面到底了
+                $scope.noMorePage = true;//禁止滚动触发时间
+            }
+        }).finally(function () {
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        });
     };
 })
 
@@ -26,8 +49,8 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
-    $scope.chat = Chats.get($stateParams.chatId);
+.controller('ChatDetailCtrl', function ($scope, $stateParams, Fac) {
+   // $scope.chat = Chats.get($stateParams.chatId);
 })
 
 .controller('AccountCtrl', function ($scope) {
@@ -36,8 +59,8 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('SlideController', function($scope) {
-  
+.controller('SlideController', function ($scope) {
+
     $scope.myActiveSlide = 1;
-  
+
 });
