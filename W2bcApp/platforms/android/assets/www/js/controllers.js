@@ -1,3 +1,6 @@
+/// <reference path="../lib/angular/angular.js" />
+
+
 angular.module('starter.controllers', [])
     //文章列表
 .controller('ArticlesCtrl', function ($scope, Fac) {
@@ -29,6 +32,88 @@ angular.module('starter.controllers', [])
         }).finally(function () {
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
+    };
+    //打开文章页
+    $scope.openArticle = function (_url) {
+        console.log(_articleId)
+        cordova.ThemeableBrowser.open(_url, '_blank', {
+            statusbar: {
+                color: '#ffffffff'
+            },
+            toolbar: {
+                height: 44,
+                color: '#f0f0f0ff'
+            },
+            title: {
+                color: '#003264ff',
+                showPageTitle: true
+            },
+            //backButton: {
+            //    wwwImage: 'img/left.png',
+            //    wwwImagePressed: 'img/left.png',
+            //    align: 'left',
+            //    event: 'backPressed'
+            //},
+            forwardButton: {
+                image: 'forward',
+                imagePressed: 'forward_pressed',
+                align: 'left',
+                event: 'forwardPressed'
+            },
+            closeButton: {
+                wwwImage: 'close',
+                wwwImagePressed: 'close_pressed',
+                align: 'left',
+                event: 'closePressed'
+            },
+            customButtons: [
+                {
+                    image: 'share',
+                    imagePressed: 'share_pressed',
+                    align: 'right',
+                    event: 'sharePressed'
+                }
+            ],
+            menu: {
+                image: 'menu',
+                imagePressed: 'menu_pressed',
+                title: 'Test',
+                cancel: 'Cancel',
+                align: 'right',
+                items: [
+                    {
+                        event: 'helloPressed',
+                        label: 'Hello World!'
+                    },
+                    {
+                        event: 'testPressed',
+                        label: 'Test!'
+                    }
+                ]
+            },
+            backButtonCanClose: true
+        }).addEventListener('backPressed', function (e) {
+            alert('back pressed');
+        }).addEventListener('helloPressed', function (e) {
+            alert('hello pressed');
+        }).addEventListener('sharePressed', function (e) {
+            alert(e.url);
+        }).addEventListener(cordova.ThemeableBrowser.EVT_ERR, function (e) {
+            console.error(e.message);
+        }).addEventListener(cordova.ThemeableBrowser.EVT_WRN, function (e) {
+            console.log(e.message);
+        });
+    }
+
+})
+.controller('ArticleCtrl', function ($scope, $stateParams, $sce) {
+    $scope.articleId = $stateParams.articleId;
+
+    $scope.getIframeSrc = function () {
+        var src = 'http://www.w2bc.com/article/' + $stateParams.articleId;
+     
+        return $sce.trustAsResourceUrl(src);
+
     };
 })
 

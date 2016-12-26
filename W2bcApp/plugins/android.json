@@ -24,7 +24,26 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "io.cordova.myapp6884e1"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "io.cordova.myapp6884e1"
+        },
+        "cordova-plugin-themeablebrowser": {
+            "PACKAGE_NAME": "io.cordova.myapp6884e1"
+        },
+        "cordova-dialogsPlus": {
+            "PACKAGE_NAME": "io.cordova.myapp6884e1"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-filepath": {
+            "PACKAGE_NAME": "io.cordova.myapp6884e1"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "io.cordova.myapp6884e1"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "io.cordova.myapp6884e1"
+        }
+    }
 }

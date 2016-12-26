@@ -54,12 +54,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
    })
    .state('article', {
        url: '/article/:articleId',
-       views: {
-           'article': {
-               templateUrl: 'templates/article.html',
-               controller: 'ArticlesCtrl'
-           }
-       }
+       templateUrl: 'templates/article.html',
+       controller: 'ArticleCtrl'
    })
 
     .state('tab.chats', {

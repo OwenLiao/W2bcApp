@@ -7,15 +7,10 @@
     <ion-nav-buttons side="right">
         <button class="button button-icon icon ion-share" ng-click="share(topic)"></button>
     </ion-nav-buttons>
-    <ion-content class="has-header">
+    <ion-content class="has-header"  overflow-scroll="true">
 
 
-
-
-        <div>dddddddddd</div>
-
-
-
+        <iframe ng-src="{{getIframeSrc()}}" frameborder="0" scrolling="no"   style="min-height: 100%;width:100%;"></iframe>
     </ion-content>
 
 </ion-view>

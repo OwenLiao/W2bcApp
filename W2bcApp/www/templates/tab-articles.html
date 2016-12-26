@@ -29,9 +29,8 @@
             </ion-slide>
         </ion-slide-box>
         <!--/幻灯片  #/tab/chats/{{chat.Id}}-->
-
         <div class="list" id="article_list">
-            <a class="item item-thumbnail-left" ng-repeat="item in vmArticles" href="#/tab/chats/{{item.Id}}">
+            <a class="item item-thumbnail-left" ng-repeat="item in vmArticles" ng-click="openArticle(http://www.w2bc.com/article/{{item.Id}}?f=app)" href="#/articl/{{item.Id}}">
                 <img class="list_img" ng-src="{{item.ImgUrl}}">
                 <h2>{{item.Title}}</h2>
                 <p>{{item.AddTime}}</p>
